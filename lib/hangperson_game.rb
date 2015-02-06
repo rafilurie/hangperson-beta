@@ -39,24 +39,22 @@ class HangpersonGame
 		#on the current game state
 		if wrong_guesses.length >= 7
 			return :lose
-		# elsif (@word.split('') & @guesses) == @guesses
-		#elsif (@guesses - @word.split("")).empty?
-		elsif @word.all? { |char| @guesses.include? char }
+		elsif @word == word_with_guesses
 		 	return :win
 		else
 			return :play
 		end
 	end
 
-	def word_with_guesses()
+	def word_with_guesses
 		#substitues the correct guesses made so far into the word
-		@copy = @word
-		@word_array = @copy.scan /\w/
-		# print @word_array
-		@letters = @word_array & @guesses
-		return @word.gsub(@letters, '-')
-		# word = 'banana'
-		#return @word)
+		@word.gsub(/./) do |c|
+			if not (@guesses.include? c)
+				'-'
+			else
+				c
+			end
+		end
 	end
 
   # add the necessary class methods, attributes, etc. here
