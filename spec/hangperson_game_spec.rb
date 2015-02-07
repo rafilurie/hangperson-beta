@@ -92,7 +92,7 @@ describe HangpersonGame do
     end
   end
   describe 'game status' do
-    before :each do 
+    before :each do
       @game = HangpersonGame.new('dog')
     end
     it 'should be win when all letters guessed' do
