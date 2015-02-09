@@ -20,7 +20,7 @@ class HangpersonGame
 		elsif adj_letter == nil
 			raise ArgumentError.new('Cannot guess nil')
 			return false
-		elsif !(adj_letter =~ /^[a-z]+$/)
+		elsif !(adj_letter =~ /^[a-z]$/)
 			raise ArgumentError.new('Parameter must be a valid letter')
 			return false
 		elsif !word.include? adj_letter
