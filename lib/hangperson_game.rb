@@ -16,10 +16,13 @@ class HangpersonGame
 		adj_letter = letter.downcase
 		if adj_letter.length == 0
 			raise ArgumentError.new('You must guess something')
+			return false
 		elsif adj_letter == nil
 			raise ArgumentError.new('Cannot guess nil')
+			return false
 		elsif !(adj_letter =~ /^[a-z]+$/)
 			raise ArgumentError.new('Parameter must be a valid letter')
+			return false
 		elsif !word.include? adj_letter
 			if !wrong_guesses.include? adj_letter
 				wrong_guesses << adj_letter
