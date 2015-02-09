@@ -13,21 +13,22 @@ class HangpersonGame
 	def guess(letter)
 		#Processes a guess and modifies the instance variables
 		#wrong_guesses and guesses accrodingly
-		if letter == ''
+		adj_letter = letter.downcase
+		if adj_letter == ''
 			raise ArgumentError.new('You must guess something')
-		elsif letter == nil
+		elsif adj_letter == nil
 			raise ArgumentError.new('Cannot guess nil')
-		elsif !(letter =~ /^[a-z]+$/)
+		elsif !(adj_letter =~ /^[a-z]+$/)
 			raise ArgumentError.new('Parameter must be a valid letter')
-		elsif !word.include? letter
-			if !wrong_guesses.include? letter
-				wrong_guesses << letter
+		elsif !word.include? adj_letter
+			if !wrong_guesses.include? adj_letter
+				wrong_guesses << adj_letter
 			else
 				return false
 			end
 		else
-			if !guesses.include? letter
-				guesses << letter
+			if !guesses.include? adj_letter
+				guesses << adj_letter
 			else
 				return false
 			end
