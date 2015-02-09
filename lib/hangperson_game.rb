@@ -14,7 +14,7 @@ class HangpersonGame
 		#Processes a guess and modifies the instance variables
 		#wrong_guesses and guesses accrodingly
 		adj_letter = letter.downcase
-		if adj_letter == ''
+		if adj_letter.length == 0
 			raise ArgumentError.new('You must guess something')
 		elsif adj_letter == nil
 			raise ArgumentError.new('Cannot guess nil')
