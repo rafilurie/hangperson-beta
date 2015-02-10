@@ -14,14 +14,14 @@ class HangpersonGame
 		#Processes a guess and modifies the instance variables
 		#wrong_guesses and guesses accrodingly
 		adj_letter = letter.downcase
-		if adj_letter.length == 0
-			raise ArgumentError.new('You must guess something')
+		begin if adj_letter.length == 0
+			rescue ArgumentError.new('You must guess something')
 			#return false
-		elsif adj_letter == nil
-			raise ArgumentError.new('Cannot guess nil')
+		begin elsif adj_letter == nil
+			rescue ArgumentError.new('Cannot guess nil')
 			#return false
-		elsif !(adj_letter =~ /^[a-z]$/)
-			raise ArgumentError.new('Parameter must be a valid letter')
+		begin elsif !(adj_letter =~ /^[a-z]$/)
+			rescue ArgumentError.new('Parameter must be a valid letter')
 			#return false
 		elsif !word.include? adj_letter
 			if !wrong_guesses.include? adj_letter
