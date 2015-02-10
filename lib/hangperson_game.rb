@@ -16,6 +16,9 @@ class HangpersonGame
 		if letter == ""
 			raise ArgumentError.new('You must guess something')
 			return false
+		elsif letter.length == 0
+			raise ArgumentError.new('Zero length')
+			return false
 		elsif letter == nil
 			raise ArgumentError.new('Cannot guess nil')
 			return false
