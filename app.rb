@@ -44,7 +44,7 @@ class HangpersonApp < Sinatra::Base
     end
     begin
       @game.guess(letter)
-    rescue
+    rescue ArgumentError
       flash[:message] = 'Invalid guess.'
     end
     redirect '/show'
